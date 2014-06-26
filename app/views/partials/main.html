@@ -1,18 +1,18 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+  <h1>Stevie the TV</h1>
+  <input type="text" ng-model="searchTerm" /><input type="button" value="Search" ng-click="search(searchTerm)"/>
 </div>
 
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+<div class="row">
+  <div ng-repeat="video in data.items" class="col-sm-6">
+      <div style="max-width: 320px">
+          <h4 style="white-space: nowrap; text-overflow: ellipsis; width:320px; overflow:hidden">
+            {{video.snippet.title}}
+          </h4>
+      </div>
+      <iframe width="320" height="180" ng-src="{{video.videourl}}" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
 

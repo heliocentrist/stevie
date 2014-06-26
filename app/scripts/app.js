@@ -6,7 +6,7 @@ angular.module('stevieApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider, $sceDelegateProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
@@ -17,4 +17,6 @@ angular.module('stevieApp', [
       });
       
     $locationProvider.html5Mode(true);
+
+    $sceDelegateProvider.resourceUrlWhitelist(['self', '//www.youtube.com/embed/**', 'http://www.youtube.com/embed/**']);
   });

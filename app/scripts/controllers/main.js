@@ -2,7 +2,10 @@
 
 angular.module('stevieApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+
+    $scope.search = function(text) {
+      $http.get('/api/search/videos?query=' + text).success(function(data) {
+        $scope.data = data;
+      });
+    };
   });
